@@ -1,2 +1,9 @@
-# LeetCode-And-GFG
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
+# LeetCode
+## Submitted Codes
+Collection of LeetCode questions to ace the coding interview! 
+
+These are the successfully submitted questions.
+Notes are attched to give you an idea of the question as well.
+
+Use this for viewing LeetCode Profile - 
+[Satyam Kumar Jha LeetCode Profile](https://leetcode.com/Harsh23Kashyap/)
