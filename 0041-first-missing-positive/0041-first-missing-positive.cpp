@@ -1,21 +1,35 @@
 class Solution {
 public:
-    int firstMissingPositive(vector<int>& nums) {
-        int n = nums.size();
-        int chair;
-        for (int i = 0; i < n; i++) {
-            if (nums[i] >= 1 && nums[i] <= n) {
-                chair = nums[i] - 1;
-                if (nums[chair] != nums[i]) {
-                    swap(nums[chair], nums[i]);
-                    i--;
-                }
+    int firstMissingPositive(vector<int>& nums) 
+    {
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]<0)
+                nums[i]=0;
+        }
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            int val=abs(nums[i]);
+            //cout<<i<<" - "<<val<<endl;
+            if(val>=1 and val<=nums.size())
+            {
+                if(nums[val-1]>0)
+                    nums[val-1]=-1*(nums[val-1]);
+                if(nums[val-1]==0)
+                    nums[val-1]=-1*(nums.size()+110);
+                    
             }
         }
-        for (int i = 0; i < n; i++) {
-            if (i + 1 != nums[i])
-                return i + 1;
+        
+        for(int i=1;i<nums.size()+1;i++)
+        {
+            //cout<<nums[i-1]<<endl;
+            if(nums[i-1]>=0)
+                return i;
+            
         }
-        return n + 1;
+        return nums.size()+1;
+        
     }
 };
