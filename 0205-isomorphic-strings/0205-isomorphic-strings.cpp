@@ -1,34 +1,39 @@
+#include <string>
+using namespace std;
+
 class Solution {
 public:
-    bool isIsomorphic(string s, string t) 
-    {
-        unordered_map<char,char> u;
-        for(char c:s)
-            u[c]='\0';
-        
-        for(int i=0;i<t.length();i++)
-        {
-            char curr=s[i];
-            if(u[curr]=='\0')
-                u[curr]=t[i];
-            if(u[curr]!=t[i])
-                return false;
+    bool isIsomorphic(string s, string t) {
+        int mapping[128];  // Array to store mappings, initialized with -1
+        fill_n(mapping, 128, -1);  // Initialize array with -1
+
+        for (int i = 0; i < s.length(); i++) {
+            char currS = s[i];
+            char currT = t[i];
+
+            // If the mapping for currS is uninitialized, set it to currT
+            if (mapping[currS] == -1) {
+                mapping[currS] = currT;
+            } else if (mapping[currS] != currT) {
+                return false;  // Mapping is violated, strings are not isomorphic
+            }
         }
-        unordered_map<char,char> u2;
-        for(char c:t)
-            u2[c]='\0';
-        
-        for(int i=0;i<s.length();i++)
-        {
-            char curr=t[i];
-            if(u2[curr]=='\0')
-                u2[curr]=s[i];
-            if(u2[curr]!=s[i])
-                return false;
+
+        // Reset mapping array for checking reverse mapping
+        fill_n(mapping, 128, -1);
+
+        for (int i = 0; i < t.length(); i++) {
+            char currS = s[i];
+            char currT = t[i];
+
+            // If the mapping for currT is uninitialized, set it to currS
+            if (mapping[currT] == -1) {
+                mapping[currT] = currS;
+            } else if (mapping[currT] != currS) {
+                return false;  // Mapping is violated, strings are not isomorphic
+            }
         }
-        return true;
-        
-        
-        
+
+        return true;  // Both mappings are consistent, strings are isomorphic
     }
 };
