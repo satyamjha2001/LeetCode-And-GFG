@@ -1,7 +1,8 @@
 class Solution {
 public:
     bool isPerfectSquare(int num) {
-        int start=1, end = num, mid;
+        int start=1, end = num; 
+        double mid;
         while(start<=end)
         {
             mid=start+(end-start)/2;
