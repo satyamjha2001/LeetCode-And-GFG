@@ -10,7 +10,8 @@ public:
         return totalHours;
     }
     int minEatingSpeed(vector<int>& piles, int h) {
-        int n=piles.size(),start=0,sum=0,end=0,mid,ans,totalHours;
+        int n=piles.size(),start=0,end=0,mid,ans,totalHours;
+        long long sum=0;
         for(int i=0;i<n;i++)
         {
             end=max(end, piles[i]);
