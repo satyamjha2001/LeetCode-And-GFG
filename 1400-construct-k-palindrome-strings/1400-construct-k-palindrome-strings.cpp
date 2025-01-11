@@ -4,14 +4,14 @@ public:
         if(s.length()<k)
             return false;
         int oddFreqCount=0;
-        vector<int> freq(26,0);
+        map<char, int> freq;
         for(int i=0;i<s.size();i++)
         {
             freq[s[i]-'a']++;
         }
-        for(int i=0;i<26;i++)
+        for(auto [ch, fre] : freq)
         {
-            if(freq[i]%2==1)
+            if(fre%2==1)
                 oddFreqCount++;
         }
 
