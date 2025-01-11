@@ -14,7 +14,6 @@ public:
             if(freq[i]%2==1)
                 oddFreqCount++;
         }
-
         return oddFreqCount<=k;
     }
 };
