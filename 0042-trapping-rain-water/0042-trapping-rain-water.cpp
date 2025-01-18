@@ -1,37 +1,30 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-        int n=height.size(), water=0,maxHeight=0,index=-1,leftMax=0,rightMax=0;
-
-        //find maximum height
-        for(int i=0;i<n;i++)
-        {
-            if(maxHeight<height[i])
-            {
-                index=i;
-                maxHeight=height[i];
+        // two pointer - 1 pass
+        int n = height.size(), totalWater = 0; // Initialize total water trapped
+        int start = 0, end = n - 1; // Two pointers, left (l) and right (r)
+        int leftMax = 0, rightMax = 0; // Initialize max heights for left and right
+        while (start < end) {
+            if (height[start] <= height[end]) {
+                // If left height is less than or equal to right height
+                if (height[start] < leftMax) {
+                    totalWater += leftMax - height[start]; // Water trapped on the left
+                } else {
+                    leftMax = height[start]; // Update left max height
+                }
+                start++; // Move left pointer
+            } else {
+                // If right height is less than left height
+                if (height[end] < rightMax) {
+                    totalWater += rightMax - height[end]; // Water trapped on the right
+                } else {
+                    rightMax = height[end]; // Update right max height
+                }
+                end--; // Move right pointer
             }
         }
 
-        //now traverse in left part of max height
-        for(int i=1;i<index;i++) //0th index not store water
-        {
-            leftMax=max(leftMax,height[i-1]);
-            if(leftMax-height[i]>0)
-            {
-                water+=leftMax-height[i];
-            }
-        }
-
-        //now traverse in right part of max height
-        for(int i=n-2;i>index;i--) //n-1 index not store water
-        {
-            rightMax=max(rightMax,height[i+1]);
-            if(rightMax-height[i]>0)
-            {
-                water+=rightMax-height[i];
-            }
-        }
-        return water;
+        return totalWater; // Return total water trapped
     }
 };
