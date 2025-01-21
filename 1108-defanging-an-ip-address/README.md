@@ -1,6 +1,6 @@
-<h2><a href="https://leetcode.com/problems/defanging-an-ip-address/">1108. Defanging an IP Address</a></h2><h3>Easy</h3><hr><div bis_skin_checked="1"><p>Given a valid (IPv4) IP <code>address</code>, return a defanged version of that IP address.</p>
+<h2><a href="https://leetcode.com/problems/defanging-an-ip-address/">1108. Defanging an IP Address</a></h2><h3>Easy</h3><hr><p>Given a valid (IPv4) IP <code>address</code>, return a defanged version of that IP address.</p>
 
-<p>A <em>defanged&nbsp;IP address</em>&nbsp;replaces every period <code>"."</code> with <code>"[.]"</code>.</p>
+<p>A <em>defanged&nbsp;IP address</em>&nbsp;replaces every period <code>&quot;.&quot;</code> with <code>&quot;[.]&quot;</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -15,4 +15,4 @@
 
 <ul>
 	<li>The given <code>address</code> is a valid IPv4 address.</li>
-</ul></div>
+</ul>
