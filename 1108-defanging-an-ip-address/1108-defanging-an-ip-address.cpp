@@ -5,13 +5,9 @@ public:
         for(int i=0;i<address.size();i++)
         {
             if(address[i]=='.')
-            {
                 ans+="[.]";
-            }
             else
-            {
-                ans.push_back(address[i]);
-            }
+                ans+=address[i];
         }
         return ans;
     }
